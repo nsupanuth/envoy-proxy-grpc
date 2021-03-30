@@ -33,6 +33,17 @@ http_filters:
         services: ["com.iphayao.grpc.service.HRService"]
 ```
 
+On envoy.yaml, set gRPC service endpoint and port
+
+```
+  clusters:
+  - name: grpcserver
+    hosts:
+    - socket_address:
+        address: host.docker.internal
+        port_value: 8080
+```
+
 Build docker
 ```
 docker build -t envoy-v1 . 
